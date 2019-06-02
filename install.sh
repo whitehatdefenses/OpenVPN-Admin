@@ -222,7 +222,7 @@ sed -i "s/PASS=''/PASS='$mysql_pass'/" "/etc/openvpn/scripts/config.sh"
 
 # Create the directory of the web application
 mkdir "$openvpn_admin"
-cp -r "$base_path/"{index.php,sql,bower.json,.bowerrc,js,include,css,installation/client-conf} "$openvpn_admin"
+cp -r "$base_path/"{index.php,sql,js,include,css,installation/client-conf} "$openvpn_admin"
 
 # New workspace
 cd "$openvpn_admin"
@@ -252,7 +252,6 @@ for directory in "./client-conf/gnu-linux/" "./client-conf/osx-viscosity/" "./cl
 done
 
 # Install third parties
-bower --allow-root install
 chown -R "$user:$group" "$openvpn_admin"
 
 printf "\033[1m\n#################################### Finish ####################################\n"
